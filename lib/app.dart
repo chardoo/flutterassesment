@@ -108,12 +108,12 @@ class _BottomNavigationExampleState extends State {
         selectedItemColor: Theme.of(context).primaryColor,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: ""),
           BottomNavigationBarItem(
-              icon: Icon(Icons.earbuds_battery), label: ""),
+              icon: Icon(Icons.browse_gallery), label: ""),
           BottomNavigationBarItem(icon: Icon(Icons.comment), label: ""),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail), label: ""),
+              icon: Icon(Icons.food_bank), label: ""),
         ],
       ),
     );
