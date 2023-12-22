@@ -31,7 +31,7 @@ class _MyWidgetState extends State<Home> {
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
-          child:Obx(() =>   ListView.builder(
+          child:  ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: homeController.video.length,
@@ -42,7 +42,7 @@ class _MyWidgetState extends State<Home> {
             },
           )),
         ),
-      ),
+      
     );
   }
 }

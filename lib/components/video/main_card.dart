@@ -5,7 +5,7 @@ import 'package:test_app/components/video/video_options.dart';
 import 'package:test_app/models/video.dart';
 import 'package:test_app/screens/video_detail.dart';
 import 'package:test_app/widgets/card_title_tile.dart';
-import 'package:test_app/components/video/videocard.dart';
+import 'package:test_app/components/video/video_with_heading_subtext.dart';
 
 class VideoCard extends StatefulWidget {
   VideoCard({
