@@ -1,9 +1,9 @@
 import 'package:uuid/uuid.dart';
 
 class VideoModel {
-  late String id;
-  final int commentCount;
-  late final int favoriteCount;
+  final String id;
+  late int commentCount;
+  late  int favoriteCount;
   final DateTime postedOn;
   final String videoUrl;
   final String heading;
