@@ -5,7 +5,7 @@ import 'package:test_app/controller/home_controller.dart';
 import 'package:test_app/models/video.dart';
 import 'package:test_app/widgets/card.dart';
 import 'package:test_app/widgets/card_title_tile.dart';
-import 'package:test_app/widgets/common/icon_indicator.dart';
+import 'package:test_app/widgets/icon_indicator.dart';
 import 'package:test_app/components/video/main_card.dart';
 
 class Home extends StatefulWidget {
@@ -31,7 +31,7 @@ class _MyWidgetState extends State<Home> {
       body: SingleChildScrollView(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView.builder(
+          child:Obx(() =>   ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: homeController.video.length,
@@ -40,7 +40,7 @@ class _MyWidgetState extends State<Home> {
                 videoModel: homeController.video[index],
               );
             },
-          ),
+          )),
         ),
       ),
     );

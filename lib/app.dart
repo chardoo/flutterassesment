@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_app/routes/router.dart';
 import 'package:test_app/screens/home.dart';
 import 'package:test_app/theme/DarkThemeProvider.dart';
 import 'package:test_app/theme/customThemeData.dart';
@@ -53,7 +54,7 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               theme: Styles.themeData(themeChangeProvider.darkTheme, context),
               home: const MyHomePage(),
-              getPages: [],
+              getPages: AppPages.appPages,
             ),
             designSize: const Size(390, 844),
           );
@@ -74,7 +75,7 @@ class MyHomePage extends StatefulWidget {
 class _BottomNavigationExampleState extends State {
   int _selectedTab = 0;
 
-  List _pages = [
+  final List _pages = [
     const Home(),
     const Center(
       child: Text("About"),
