@@ -47,9 +47,7 @@ class _MyWidgetState extends State<VideoCard> {
                     )),
 
                     VideoOptions(
-                    id: widget.videoModel.id,  
-                    commentCount: widget.videoModel.commentCount,
-                    favouriteCount: widget.videoModel.favoriteCount,
+                    videoModel: widget.videoModel,
                     
                     )
               ],

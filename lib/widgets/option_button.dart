@@ -9,11 +9,13 @@ class OptionButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
+    this.color
   });
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
+      color: color,
       icon: icon,
       onPressed: () {
         onPressed();

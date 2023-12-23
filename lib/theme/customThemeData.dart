@@ -55,9 +55,7 @@ class Styles {
               isDarkTheme ? const Color(0xFF2B2929) : Colors.white,
 
           //opposite of  primary
-          onPrimary: isDarkTheme
-              ? const Color.fromARGB(255, 0, 0, 0)
-              : const Color.fromARGB(255, 255, 255, 255),
+          onPrimary: Colors.grey,
           onSecondary: isDarkTheme
               ? const Color.fromARGB(255, 255, 255, 255)
               : const Color.fromARGB(255, 0, 0, 0),

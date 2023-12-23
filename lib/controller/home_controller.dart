@@ -10,6 +10,7 @@ class HomeController extends GetxController {
 
     video = [
       VideoModel(
+          isLike: true,
           id: "2",
           commentCount: 20,
           favoriteCount: 40,
@@ -20,6 +21,7 @@ class HomeController extends GetxController {
               "Trump Victory is on the way and america will exopereince economic growth unimagenable with a split  second",
           description: "Former President"),
       VideoModel(
+          isLike: true,
           id: "3",
           commentCount: 40,
           favoriteCount: 60,
@@ -29,6 +31,7 @@ class HomeController extends GetxController {
           heading: "Biden Victory",
           description: "Former President"),
       VideoModel(
+          isLike: false,
           id: "4",
           commentCount: 50,
           favoriteCount: 30,
@@ -47,12 +50,13 @@ class HomeController extends GetxController {
       // Increment the favorite count if the video is found else decress
       if (isLkie) {
         video[index].favoriteCount = video[index].favoriteCount + 1;
+        video[index].isLike = true;
       } else {
+         video[index].isLike = false;
         video[index].favoriteCount = video[index].favoriteCount - 1;
       }
-    
-      // call api the listen to response
+
     }
-     update();
+    update();
   }
 }
