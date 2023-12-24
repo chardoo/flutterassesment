@@ -64,7 +64,7 @@ class HomeController extends GetxController {
          feeds[index].isLike = false;
         feeds[index].favoriteCount = feeds[index].favoriteCount - 1;
       }
-
+    // make api call 
     }
     update();
   }

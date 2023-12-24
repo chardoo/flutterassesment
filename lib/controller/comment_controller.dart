@@ -72,6 +72,7 @@ class CommentController extends GetxController {
   ].cast<CommentModel>().obs;
 
   Future<List<CommentModel>> getComment(String videoId) async {
+    // call api for data so wre will return this dummy data  for  now
     return comments;
   }
 
@@ -84,6 +85,7 @@ class CommentController extends GetxController {
         message: message,
         postedOn: DateTime.now());
     comments.add(comment);
+    // then make a call to api to tell backend
     update();
   }
 }
