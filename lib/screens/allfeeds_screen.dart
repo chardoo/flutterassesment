@@ -19,7 +19,7 @@ class _MyWidgetState extends State<AllFeedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(leading: Text("Trending")),
+      appBar: AppBar(title: Text("Trending", style: TextStyle(fontSize: 20),)),
       floatingActionButton: FloatingActionButton(
           elevation: 0.0,
           backgroundColor: Theme.of(context).primaryColor,
