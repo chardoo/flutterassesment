@@ -23,7 +23,8 @@ App navigation flow:
 
 Screens: The screen folder houses all the app's screens, each representing a distinct view.
 Landing page: The allscreen serves as the app's entry point, displaying trending news feeds.
-Feed details: Tapping a feed on the landing page navigates to the feed_details screen, showcasing comprehensive feed information, comments, replies, and the ability to add your own comments.
+Feed details: Tapping a feed on the landing page navigates to the feed_details screen, showcasing comprehensive feed information, comments, replies, and the ability to add your own comments. you can also like and dislike a feed and the number will decrease, add you a=own comment to the comment sectios as well.
+
 Project structure:
 
 1 screen: Contains all app screens, defining the visual structure and user interactions for each view.
