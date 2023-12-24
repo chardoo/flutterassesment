@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/routes/router.dart';
-import 'package:test_app/screens/home.dart';
+import 'package:test_app/screens/allfeeds_screen.dart';
 import 'package:test_app/theme/DarkThemeProvider.dart';
 import 'package:test_app/theme/customThemeData.dart';
 import 'package:test_app/theme/DarkThemeProvider.dart';
@@ -76,7 +76,7 @@ class _BottomNavigationExampleState extends State {
   int _selectedTab = 0;
 
   final List _pages = [
-    const Home(),
+    const AllFeedScreen(),
     const Center(
       child: Text("About"),
     ),

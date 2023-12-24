@@ -1,15 +1,18 @@
 import 'package:get/get.dart';
-import 'package:test_app/models/video.dart';
+import 'package:test_app/models/feed.dart';
 
 class HomeController extends GetxController {
-  List<VideoModel> video = [].cast<VideoModel>().obs;
+  List<FeedModel> feeds = [].cast<FeedModel>().obs;
 
   @override
   void onInit() {
     // TODO: implement onInit
 
-    video = [
-      VideoModel(
+    feeds = [
+      FeedModel(
+         profileImageUrl: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+         handleName: 'CoronaVirus',
+          author: 'by unicorm travle and tour',
           isLike: true,
           id: "2",
           commentCount: 20,
@@ -20,7 +23,10 @@ class HomeController extends GetxController {
           heading:
               "Trump Victory is on the way and america will exopereince economic growth unimagenable with a split  second",
           description: "Former President"),
-      VideoModel(
+      FeedModel(
+         profileImageUrl: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+         handleName: 'PolioVirus',
+          author: 'by unicorm travle and tour',
           isLike: true,
           id: "3",
           commentCount: 40,
@@ -30,7 +36,10 @@ class HomeController extends GetxController {
               "https://sneg.top/uploads/posts/2023-04/1680868032_sneg-top-p-demokratiya-kartinki-pinterest-18.jpg",
           heading: "Biden Victory",
           description: "Former President"),
-      VideoModel(
+      FeedModel(
+         profileImageUrl: 'https://baconmockup.com/250/250/',
+         handleName: 'CoronaVirus',
+            author: 'by unicorm travle and tour',
           isLike: false,
           id: "4",
           commentCount: 50,
@@ -45,15 +54,15 @@ class HomeController extends GetxController {
   }
 
   void increaseFavoriteCountById(String id, isLkie) {
-    final index = video.indexWhere((video) => video.id == id);
+    final index = feeds.indexWhere((video) => video.id == id);
     if (index != -1) {
       // Increment the favorite count if the video is found else decress
       if (isLkie) {
-        video[index].favoriteCount = video[index].favoriteCount + 1;
-        video[index].isLike = true;
+        feeds[index].favoriteCount = feeds[index].favoriteCount + 1;
+        feeds[index].isLike = true;
       } else {
-         video[index].isLike = false;
-        video[index].favoriteCount = video[index].favoriteCount - 1;
+         feeds[index].isLike = false;
+        feeds[index].favoriteCount = feeds[index].favoriteCount - 1;
       }
 
     }
