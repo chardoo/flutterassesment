@@ -23,72 +23,81 @@ class FeedDetialScreen extends StatefulWidget {
 }
 
 class _VideoDetialState extends State<FeedDetialScreen> {
-  CommentController commentController = Get.put(CommentController());
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: CardDetailsAppBar(
-            feedModel: widget.feedModel,
-          )),
-      body: SingleChildScrollView(
-          child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                FeedDetailsCard(feedModel: widget.feedModel),
-                Container(
-                  margin: EdgeInsets.only(top: 10),
-                  color: Colors.white,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: Text(
-                          "Best Comment",
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        child: FutureBuilder(
-                            future: commentController
-                                .getComment(widget.feedModel.id),
-                            builder:
-                                (BuildContext context, AsyncSnapshot snapshot) {
-                              if (snapshot.data == null) {
-                                return const Center(
-                                  child: Text('Loading...'),
-                                );
-                              } else {
-                                return ListView.builder(
-                                  shrinkWrap: true,
-                                  physics: const NeverScrollableScrollPhysics(),
-                                  itemCount: snapshot.data.length,
-                                  itemBuilder: (BuildContext ctxt, int index) {
-                                    return AllCommentAndReply(
-                                      commentModel: snapshot.data[index],
-                                    );
-                                  },
-                                );
-                              }
-                            }),
-                      )
-                    ],
-                  ),
-                )
-              ]))),
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        margin: const EdgeInsets.only(
-          bottom: 20,
-        ),
-        height: 50,
-        child: const CommentBox(),
-      ),
-    );
+    return GetBuilder<CommentController>(
+        init: CommentController(),
+        builder: (CommentController commentController) {
+          return Scaffold(
+            appBar: AppBar(
+                automaticallyImplyLeading: false,
+                title: CardDetailsAppBar(
+                  feedModel: widget.feedModel,
+                )),
+            body: SingleChildScrollView(
+                child: Container(
+                    margin: const EdgeInsets.only(left: 20, right: 20),
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          FeedDetailsCard(feedModel: widget.feedModel),
+                          Container(
+                            margin: const EdgeInsets.only(top: 10),
+                            color: Colors.white,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(
+                                      left: 20, bottom: 10),
+                                  child: const Text(
+                                    "Best Comment",
+                                    style: TextStyle(fontSize: 20),
+                                  ),
+                                ),
+                                Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 20),
+                                  child: FutureBuilder(
+                                      future: commentController
+                                          .getComment(widget.feedModel.id),
+                                      builder: (BuildContext context,
+                                          AsyncSnapshot snapshot) {
+                                        if (snapshot.data == null) {
+                                          return const Center(
+                                            child: Text('Loading...'),
+                                          );
+                                        } else {
+                                          return ListView.builder(
+                                            shrinkWrap: true,
+                                            physics:
+                                                const NeverScrollableScrollPhysics(),
+                                            itemCount: snapshot.data.length,
+                                            itemBuilder:
+                                                (BuildContext ctxt, int index) {
+                                              return AllCommentAndReply(
+                                                commentModel:
+                                                    snapshot.data[index],
+                                              );
+                                            },
+                                          );
+                                        }
+                                      }),
+                                )
+                              ],
+                            ),
+                          )
+                        ]))),
+            bottomNavigationBar: Container(
+              color: Colors.white,
+              margin: const EdgeInsets.only(
+                bottom: 20,
+              ),
+              height: 50,
+              child:  CommentBox(),
+            ),
+          );
+        });
   }
 }

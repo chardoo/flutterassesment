@@ -12,42 +12,40 @@ class AllCommentAndReply extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        CommentCard(commentModel: commentModel),
         Container(
-          child: CommentCard(commentModel: commentModel),
+          margin: EdgeInsets.only(
+              left: 35,
+              top: commentModel.replies.isNotEmpty ? 20 : 0,
+              bottom: commentModel.replies.isNotEmpty ? 20 : 0),
+          decoration: const BoxDecoration(
+              border: Border(
+                  left: BorderSide(
+            color: Color.fromARGB(255, 237, 235, 235),
+            width: 3,
+          ))),
+          child: ListView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            itemCount: commentModel.replies.length,
+            itemBuilder: (BuildContext ctxt, int index) {
+              return RepleCardWidget(
+                reply: commentModel.replies[index],
+              );
+            },
+          ),
         ),
         Container(
-            margin:  EdgeInsets.only(left: 35, top: commentModel.replies.isNotEmpty? 20:0, bottom: commentModel.replies.isNotEmpty? 20:0),
-            decoration: const BoxDecoration(
-                border: Border(
-                    left: BorderSide(
-              color: Color.fromARGB(255, 237, 235, 235),
-              width: 3,
-            ))),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: commentModel.replies.length,
-                  itemBuilder: (BuildContext ctxt, int index) {
-                    return RepleCardWidget(
-                      reply: commentModel.replies[index],
-                    );
-                  },
-                ),
-                Container(
-                    child:
-                        commentModel.replies.isNotEmpty ?  Text("Reply",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          color: Theme.of(context).primaryColor
-                        ),
-                        ) : null)
-              ],
-            ))
+          margin: EdgeInsets.only(left: 5),
+            child: commentModel.replies.isNotEmpty
+                ? Text(
+                    "Reply",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(color: Theme.of(context).primaryColor),
+                  )
+                : null)
       ],
     );
   }

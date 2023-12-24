@@ -20,6 +20,7 @@ class _MyWidgetState extends State<CommentCard> {
           ),
         ),
       ),
+      contentPadding: EdgeInsets.only(left: 5),
       titleAlignment: ListTileTitleAlignment.top,
       title: Text(
         widget.commentModel.handleName,
