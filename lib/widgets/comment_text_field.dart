@@ -1,23 +1,27 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_app/controller/comment_controller.dart';
 
 class CommentBox extends StatelessWidget {
-  const CommentBox({
+  CommentBox({
     super.key,
   });
 
+  CommentController commentController = Get.put(CommentController());
+  TextEditingController commentTyped = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 28),
       child: Row(
         children: [
-          const Flexible(
+          Flexible(
               child: SizedBox(
             height: 45,
             child: TextField(
-              decoration: InputDecoration(
+              controller: commentTyped,
+              decoration: const InputDecoration(
                 hintText: "Add a comment...",
                 hintStyle: TextStyle(
                   fontSize: 13,
@@ -39,7 +43,9 @@ class CommentBox extends StatelessWidget {
               ),
               child: InkWell(
                 //borderRadius: BorderRadius.circular(100.0),
-                onTap: () {},
+                onTap: () {
+                  commentController.addComment(commentTyped.text);
+                },
                 child: const Padding(
                   padding: EdgeInsets.all(10.0),
                   child: Icon(
